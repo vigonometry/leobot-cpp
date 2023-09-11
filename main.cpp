@@ -12,6 +12,10 @@ public:
         print_pad("It was nice talking, see you soon!");
     }
 
+    void echo(string s) {
+        print_pad(s);
+    }
+
 private:
     const int MAX_PAD = 80;
     void print_pad(const string s) {
@@ -26,7 +30,15 @@ private:
 };
 int main() {
     LeoBot l;
+    string inp;
     l.greet();
-    l.exit();
+    while (true) {
+        cin >> inp;
+        if (inp == "quit") {
+            l.exit();
+            return 0;
+        }
+        l.echo(inp);
+    }
     return 0;
 }
